@@ -2,237 +2,260 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MBA Jerry Ikenna - Tech Professional Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Mba Ikenna - AI Enhanced CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a237e;
-            --secondary-color: #0d47a1;
-            --accent-color: #2962ff;
-            --text-color: #333;
-            --light-bg: #f5f6fa;
+            --gradient: linear-gradient(45deg, #ff6b6b, #a742f5, #4158d0, #ff8f3f);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            background: #f0f2f5;
+            color: #333;
         }
 
         .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 60px 20px;
+            background: var(--gradient);
+            padding: 2rem;
             text-align: center;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .profile-summary {
-            background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin: 30px 0 20px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .skill-tag {
-            background: white;
-            color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid var(--accent-color);
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent-color);
             color: white;
-            transform: translateY(-3px);
         }
 
-        .experience-card {
+        .portfolio-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 1rem;
+            animation: gradient 5s ease infinite;
+            background-size: 300% 300%;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .carousel-container {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 2rem;
             background: white;
-            padding: 25px;
-            margin: 15px 0;
+        }
+
+        .slide h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .slide h3 {
+            margin: 1rem 0;
+            color: #34495e;
+        }
+
+        .slide ul {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+
+        .slide ul li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .slide ul li:before {
+            content: "•";
+            color: #a742f5;
+            position: absolute;
+            left: 0;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .control-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 1rem;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            margin-top: 1rem;
         }
 
-        .experience-card:hover {
-            transform: translateY(-5px);
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .achievement {
-            background: #e3f2fd;
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .cert-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        @media (max-width: 768px) {
+            .portfolio-btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.6rem;
+            }
+            .slide {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>MBA JERRY IKENNA</h1>
-            <p>Software Developer | Game Developer | Fraud Analyst</p>
-            <p>📧 jerrymba770@gmail.com | 📱 07011547553 | 📍 Abule-Egba, Lagos</p>
-        </div>
+    <header class="header">
+        <h1>Jerry Mba Ikenna</h1>
+        <p>Fraud Analyst & AI Innovation Engineer</p>
+        <a href="https://jerry-mba-portfolio.vercel.app" class="portfolio-btn">
+            <i class="fas fa-robot"></i> Jerry is also making stuff with AI
+        </a>
+    </header>
 
-        <div class="profile-summary" id="summary">
-            <!-- Profile summary will be populated by JavaScript -->
-        </div>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+                <p>Currently a Fraud Analyst at First Bank Nigeria with 11 months in this role and 5 years of experience across Programming, Sales, Administration, and Data Handling.</p>
+                <h3>Education</h3>
+                <p>B.Sc. in Computer Science (2:1) - National Open University Nigeria</p>
+            </div>
 
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid" id="skillsContainer">
-            <!-- Skills will be populated by JavaScript -->
-        </div>
+            <div class="slide">
+                <h2><i class="fas fa-laptop-code"></i> Technical Skills & Certifications</h2>
+                <h3>Core Technical Skills</h3>
+                <ul>
+                    <li>Python Programming, HTML5, CSS, JavaScript</li>
+                    <li>TypeScript, Lua, C#</li>
+                    <li>Unity, Blender 3D</li>
+                    <li>Finacle 8, Digital Forensics</li>
+                </ul>
+                <h3>Certifications</h3>
+                <ul>
+                    <li>SOLOLEARN: Java, C#, JavaScript, HTML, CSS</li>
+                    <li>Python certifications - University of Michigan and Alberta</li>
+                    <li>Google Data Analysis Course</li>
+                </ul>
+            </div>
 
-        <h2 class="section-title">Professional Experience</h2>
-        <div id="experienceContainer">
-            <!-- Experience cards will be populated by JavaScript -->
-        </div>
+            <div class="slide">
+                <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                <h3>Current Role</h3>
+                <p>Fraud Analyst - First Bank Nigeria (December 2023 - Present)</p>
+                <ul>
+                    <li>Implementing secure customer verification systems</li>
+                    <li>Managing critical security incidents</li>
+                    <li>Suspicious activity monitoring</li>
+                </ul>
+                <h3>Previous Roles</h3>
+                <ul>
+                    <li>Sales/Liaison Officer - DNUTREX FOODS</li>
+                    <li>Provisional Area Administrator - Living Faith Church</li>
+                    <li>Graphics Design & Video Game Development Tutor - DREAMQUEST MULTIMEDIA</li>
+                </ul>
+            </div>
 
-        <h2 class="section-title">Certifications</h2>
-        <div class="certifications" id="certificationsContainer">
-            <!-- Certifications will be populated by JavaScript -->
+            <div class="slide">
+                <h2><i class="fas fa-trophy"></i> Projects & Achievements</h2>
+                <ul>
+                    <li>Safeguarded over 1,000 customer accounts from fraud</li>
+                    <li>Successfully launched two game applications on Google Play Store</li>
+                    <li>Led construction oversight of 500-seat church facility</li>
+                    <li>Secured deals with mainstream urban supermarket chains</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h2><i class="fas fa-star"></i> Skills & Contact</h2>
+                <h3>Core Competencies</h3>
+                <ul>
+                    <li>Detail Oriented</li>
+                    <li>Team Oriented</li>
+                    <li>Creative</li>
+                    <li>Good Communication & Presentation Skills</li>
+                    <li>Efficient Organization</li>
+                </ul>
+                <div class="contact-info">
+                    <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+                    <ul>
+                        <li>Email: jerrymba770@gmail.com</li>
+                        <li>Phone: 07011547553</li>
+                        <li>Location: Abule-Egba, Lagos</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
+    <div class="controls">
+        <button class="control-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="control-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
     <script>
-        // Profile Summary
-        document.getElementById('summary').innerHTML = `
-            <p>Exceptional professional with 5 years of experience across Programming, Sales, Administration, and Data Handling. 
-            Strong background in software development, game design, and fraud analysis, with a proven track record of delivering 
-            innovative solutions and maintaining security standards. B.Sc. in Computer Science (2:1) from National Open University Nigeria.</p>
-        `;
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const carousel = document.querySelector('.carousel');
 
-        // Skills data
-        const skills = [
-            "Python Programming",
-            "HTML5", "CSS", "JavaScript",
-            "TypeScript", "Lua", "C#",
-            "Unity", "Blender 3D",
-            "Finacle 8",
-            "Digital Forensics",
-            "Detail Oriented",
-            "Team Oriented",
-            "Efficient Organization",
-            "Emotional Intelligence"
-        ];
+        function updateSlide() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
 
-        // Professional experience
-        const experiences = [
-            {
-                title: "Fraud Analyst",
-                company: "FIRST BANK NIGERIA",
-                period: "December 2023 - Present",
-                location: "Iganmu, Lagos",
-                duties: [
-                    "Implemented secure customer verification system",
-                    "Escalate and resolve critical security incidents",
-                    "Logging suspicious activity on customer accounts",
-                    "Analysing and carrying out defensive measures"
-                ],
-                achievement: "Safeguarded over 1,000 customer accounts from fraudulent activity through proactive measures"
-            },
-            {
-                title: "Graphics Design & Video Game Development Tutor",
-                company: "DREAMQUEST MULTIMEDIA",
-                period: "December 2022 – January 2024",
-                location: "Ikeja, Lagos",
-                duties: [
-                    "Created prototypes using C#, JavaScript, and Python",
-                    "Designed games with professional design tools",
-                    "Used debugging techniques to identify and resolve issues"
-                ],
-                achievement: "Successfully launched two game applications on the Google Play Store"
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                prevSlide();
             }
-        ];
-
-        // Certifications
-        const certifications = [
-            "SOLOLEARN: Java, C#, JavaScript for Game Developers, HTML, CSS",
-            "Python, Programming for Everybody - University of Michigan",
-            "Python for Video Game Development - University of Alberta",
-            "Google Data Analysis Course",
-            "Word of Faith Bible Institute Certificates"
-        ];
-
-        // Populate skills
-        const skillsContainer = document.getElementById('skillsContainer');
-        skills.forEach(skill => {
-            const skillTag = document.createElement('div');
-            skillTag.className = 'skill-tag';
-            skillTag.textContent = skill;
-            skillsContainer.appendChild(skillTag);
-        });
-
-        // Populate experience
-        const experienceContainer = document.getElementById('experienceContainer');
-        experiences.forEach(exp => {
-            const expCard = document.createElement('div');
-            expCard.className = 'experience-card';
-            expCard.innerHTML = `
-                <h3>${exp.title}</h3>
-                <h4>${exp.company}</h4>
-                <p>${exp.period} | ${exp.location}</p>
-                <ul>
-                    ${exp.duties.map(duty => `<li>${duty}</li>`).join('')}
-                </ul>
-                <div class="achievement">
-                    <strong>Achievement:</strong> ${exp.achievement}
-                </div>
-            `;
-            experienceContainer.appendChild(expCard);
-        });
-
-        // Populate certifications
-        const certificationsContainer = document.getElementById('certificationsContainer');
-        certifications.forEach(cert => {
-            const certItem = document.createElement('div');
-            certItem.className = 'cert-item';
-            certItem.textContent = cert;
-            certificationsContainer.appendChild(certItem);
         });
     </script>
 </body>
