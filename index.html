@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MBA Jerry Ikenna - Tech Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #0d47a1;
+            --accent-color: #2962ff;
+            --text-color: #333;
+            --light-bg: #f5f6fa;
+        }
 
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .profile-summary {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .experience-card {
+            background: white;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement {
+            background: #e3f2fd;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MBA JERRY IKENNA</h1>
+            <p>Software Developer | Game Developer | Fraud Analyst</p>
+            <p>📧 jerrymba770@gmail.com | 📱 07011547553 | 📍 Abule-Egba, Lagos</p>
+        </div>
+
+        <div class="profile-summary" id="summary">
+            <!-- Profile summary will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid" id="skillsContainer">
+            <!-- Skills will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Professional Experience</h2>
+        <div id="experienceContainer">
+            <!-- Experience cards will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications" id="certificationsContainer">
+            <!-- Certifications will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Profile Summary
+        document.getElementById('summary').innerHTML = `
+            <p>Exceptional professional with 5 years of experience across Programming, Sales, Administration, and Data Handling. 
+            Strong background in software development, game design, and fraud analysis, with a proven track record of delivering 
+            innovative solutions and maintaining security standards. B.Sc. in Computer Science (2:1) from National Open University Nigeria.</p>
+        `;
+
+        // Skills data
+        const skills = [
+            "Python Programming",
+            "HTML5", "CSS", "JavaScript",
+            "TypeScript", "Lua", "C#",
+            "Unity", "Blender 3D",
+            "Finacle 8",
+            "Digital Forensics",
+            "Detail Oriented",
+            "Team Oriented",
+            "Efficient Organization",
+            "Emotional Intelligence"
+        ];
+
+        // Professional experience
+        const experiences = [
+            {
+                title: "Fraud Analyst",
+                company: "FIRST BANK NIGERIA",
+                period: "December 2023 - Present",
+                location: "Iganmu, Lagos",
+                duties: [
+                    "Implemented secure customer verification system",
+                    "Escalate and resolve critical security incidents",
+                    "Logging suspicious activity on customer accounts",
+                    "Analysing and carrying out defensive measures"
+                ],
+                achievement: "Safeguarded over 1,000 customer accounts from fraudulent activity through proactive measures"
+            },
+            {
+                title: "Graphics Design & Video Game Development Tutor",
+                company: "DREAMQUEST MULTIMEDIA",
+                period: "December 2022 – January 2024",
+                location: "Ikeja, Lagos",
+                duties: [
+                    "Created prototypes using C#, JavaScript, and Python",
+                    "Designed games with professional design tools",
+                    "Used debugging techniques to identify and resolve issues"
+                ],
+                achievement: "Successfully launched two game applications on the Google Play Store"
+            }
+        ];
+
+        // Certifications
+        const certifications = [
+            "SOLOLEARN: Java, C#, JavaScript for Game Developers, HTML, CSS",
+            "Python, Programming for Everybody - University of Michigan",
+            "Python for Video Game Development - University of Alberta",
+            "Google Data Analysis Course",
+            "Word of Faith Bible Institute Certificates"
+        ];
+
+        // Populate skills
+        const skillsContainer = document.getElementById('skillsContainer');
+        skills.forEach(skill => {
+            const skillTag = document.createElement('div');
+            skillTag.className = 'skill-tag';
+            skillTag.textContent = skill;
+            skillsContainer.appendChild(skillTag);
+        });
+
+        // Populate experience
+        const experienceContainer = document.getElementById('experienceContainer');
+        experiences.forEach(exp => {
+            const expCard = document.createElement('div');
+            expCard.className = 'experience-card';
+            expCard.innerHTML = `
+                <h3>${exp.title}</h3>
+                <h4>${exp.company}</h4>
+                <p>${exp.period} | ${exp.location}</p>
+                <ul>
+                    ${exp.duties.map(duty => `<li>${duty}</li>`).join('')}
+                </ul>
+                <div class="achievement">
+                    <strong>Achievement:</strong> ${exp.achievement}
+                </div>
+            `;
+            experienceContainer.appendChild(expCard);
+        });
+
+        // Populate certifications
+        const certificationsContainer = document.getElementById('certificationsContainer');
+        certifications.forEach(cert => {
+            const certItem = document.createElement('div');
+            certItem.className = 'cert-item';
+            certItem.textContent = cert;
+            certificationsContainer.appendChild(certItem);
+        });
+    </script>
+</body>
+</html>
